@@ -1,24 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 
-const cardsArray: Array<object> = ref([
-    {
-      image:  '🐶',
-      name: 'Dog'
-    }
-  , '🐶', '🐱', '🐱', '🦊', '🦊', '🐻', '🐻','🐵','🐵','🦝','🦝',
-  '🐼', '🐼', '🐨', '🐨', '🐯', '🐯', '🦁', '🦁','🐭','🐭','🐷','🐷'
-]);
-
-const shuffle = () => {
-    cardsArray.sort(() => Math.random() - 0.5)
+interface cardContent {
+    name: string,
+    image: string
 }
+
+const props = defineProps<{
+    cardContent: cardContent
+}>()
 </script>
 
 <template>
     <div class="card">
-        <p id="name">Raccon</p>
-        <p id="icon">🦝</p>
+        <p id="name">{{props.cardContent.name}}</p>
+        <p id="icon">{{props.cardContent.image}}</p>
     </div>
 </template>
 
