@@ -83,22 +83,6 @@ const cardsArray: Array<object> = ref([
     image: '🦁',
     name: 'Lion'
   },
-  {
-    image: '🐭',
-    name: 'Mouse'
-  },
-  {
-    image: '🐭',
-    name: 'Mouse'
-  },
-  {
-    image: '🐷',
-    name: 'Pig'
-  },
-  {
-    image: '🐷',
-    name: 'Pig'
-  }
 ]);
 
 const shuffle = computed(() => {
@@ -109,10 +93,17 @@ const shuffle = computed(() => {
 
 <template>
   <div>
-    <Card v-for="card in shuffle" :key="card.name" :cardContent="card"/>
+    <h1>Jogo da Memória</h1>
+    <div class="cards">
+        <Card v-for="card in shuffle" :key="card.name" :cardContent="card"/>
+    </div>
   </div>
 </template>
 
-<style>
-
+<style scoped>
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(4, 100px);
+        grid-gap: 10px;
+    }
 </style>
