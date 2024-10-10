@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import Card from './Card.vue';
 
 const cardsArray: Array<object> = ref([
   {
@@ -100,18 +101,15 @@ const cardsArray: Array<object> = ref([
   }
 ]);
 
-const shuffle = () => {
-    cardsArray.sort(() => Math.random() - 0.5)
-}
+const shuffle = computed(() => {
+    return cardsArray.value.sort(() => Math.random() - 0.5);
+});
 
-onMounted(() => {
-    shuffle();
-})
 </script>
 
 <template>
   <div>
-    
+    <Card v-for="card in shuffle" :key="card.name" :cardContent="card"/>
   </div>
 </template>
 

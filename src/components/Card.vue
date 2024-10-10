@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 interface cardContent {
-    name: string,
-    image: string
+    image: string,
+    name: string
 }
 
 const props = defineProps<{

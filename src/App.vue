@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Card from './components/Card.vue';
+import CardDisplay from './components/CardDisplay.vue';
 </script>
 
 <template>
   <div>
-    <Card/>
+    <CardDisplay/>
   </div>
 </template>
 
