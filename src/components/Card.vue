@@ -22,16 +22,27 @@ const hidden = computed(() => {
 })
 
 const flip = () => {
-    if(store.firstCard == 'a'){
+    if(store.firstCard && store.secondCard) return //para previnir que se possa escolher uma carta enquanto as outras estão sendo computadas
+    if(!store.firstCard){
         store.firstCard = props.cardContent
         store.firstCard.flipped = true;
-    } else if(store.secondCard == 'b'){
+    } else if(!store.secondCard){
         store.secondCard = props.cardContent
         store.secondCard.flipped = true;
     }
 
-    if(store.ifPair == true){
-        store.matching();
+    if (store.firstCard && store.secondCard){
+        setTimeout(() => {
+        if(store.ifPair == true){
+            store.matching();
+        } else{
+            setTimeout(() => {
+                store.firstCard.flipped = false;
+                store.secondCard.flipped = false;
+                store.$reset()
+            }, 1000)
+        }
+        }, 1000)
     }
 }
 </script>
@@ -39,7 +50,6 @@ const flip = () => {
 <template>
     <div class="card" @click="flip" >
         <div class="card-content" :class="hidden">
-            <p>{{ store.ifPair }}</p>
             <p id="name">{{props.cardContent.name}}</p>
             <p id="icon">{{props.cardContent.image}}</p>
         </div>

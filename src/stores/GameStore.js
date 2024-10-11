@@ -5,8 +5,8 @@ export const useGameStore = defineStore('GameStore',() =>  {
     const playerOneScore = ref(0)
     const playerTwoScore = ref(0)
 
-    const firstCard = ref('a')
-    const secondCard = ref('b')
+    const firstCard = ref()
+    const secondCard = ref()
 
     const cardsArray = ref([
         {
@@ -37,86 +37,90 @@ export const useGameStore = defineStore('GameStore',() =>  {
           flipped: false,
           matched: false
         },
-        //   {
-        //     image: '🦊',
-        //     name: 'Fox'
-        //   },
-        //   {
-        //     image: '🦊',
-        //     name: 'Fox'
-        //   },
-        //   {
-        //     image: '🐻',
-        //     name: 'Bear'
-        //   },
-        //   {
-        //     image: '🐻',
-        //     name: 'Bear'
-        //   },
-        //   {
-        //     image: '🐵',
-        //     name: 'Monkey'
-        //   },
-        //   {
-        //     image: '🐵',
-        //     name: 'Monkey'
-        //   },
-        //   {
-        //     image: '🦝',
-        //     name: 'Raccoon'
-        //   },
-        //   {
-        //     image: '🦝',
-        //     name: 'Raccoon'
-        //   },
-        //   {
-        //     image: '🐼',
-        //     name: 'Panda'
-        //   },
-        //   {
-        //     image: '🐼',
-        //     name: 'Panda'
-        //   },
-        //   {
-        //     image: '🐨',
-        //     name: 'Koala'
-        //   },
-        //   {
-        //     image: '🐨',
-        //     name: 'Koala'
-        //   },
-        //   {
-        //     image: '🐯',
-        //     name: 'Tiger'
-        //   },
-        //   {
-        //     image: '🐯',
-        //     name: 'Tiger'
-        //   },
-        //   {
-        //     image: '🦁',
-        //     name: 'Lion'
-        //   },
-        //   {
-        //     image: '🦁',
-        //     name: 'Lion'
-        //   },
+          {
+            image: '🦊',
+            name: 'Fox'
+          },
+          {
+            image: '🦊',
+            name: 'Fox'
+          },
+          {
+            image: '🐻',
+            name: 'Bear'
+          },
+          {
+            image: '🐻',
+            name: 'Bear'
+          },
+          {
+            image: '🐵',
+            name: 'Monkey'
+          },
+          {
+            image: '🐵',
+            name: 'Monkey'
+          },
+          {
+            image: '🦝',
+            name: 'Raccoon'
+          },
+          {
+            image: '🦝',
+            name: 'Raccoon'
+          },
+          {
+            image: '🐼',
+            name: 'Panda'
+          },
+          {
+            image: '🐼',
+            name: 'Panda'
+          },
+          {
+            image: '🐨',
+            name: 'Koala'
+          },
+          {
+            image: '🐨',
+            name: 'Koala'
+          },
+          {
+            image: '🐯',
+            name: 'Tiger'
+          },
+          {
+            image: '🐯',
+            name: 'Tiger'
+          },
+          {
+            image: '🦁',
+            name: 'Lion'
+          },
+          {
+            image: '🦁',
+            name: 'Lion'
+          },
     ])
 
     const ifPair = computed(() => {
-        if (firstCard.value.name == secondCard.value.name) return true;   
-        else return false;  
+        if (firstCard.value != null && secondCard.value != null){
+            if (firstCard.value.name == secondCard.value.name) return true;   
+            else return false;
+        }  
     })
 
-    function matching(){
-        if(ifPair == true){
-            firstCard.value.flipped = true;
-            firstCard.value.matched = true;
-            secondCard.value.flipped = true;
-            secondCard.value.matched = true;
-        }
-        firstCard.value = ''
-        secondCard.value = ''
+    function $reset(){
+        firstCard.value = null
+        secondCard.value = null
     }
-    return { playerOneScore, playerTwoScore, firstCard, secondCard, ifPair, cardsArray, matching }
+
+    function matching(){
+        firstCard.value.flipped = true;
+        firstCard.value.matched = true;
+        secondCard.value.flipped = true;
+        secondCard.value.matched = true;
+        $reset()
+    }
+    return { playerOneScore, playerTwoScore, firstCard, secondCard, ifPair, cardsArray, matching, $reset }
 })
