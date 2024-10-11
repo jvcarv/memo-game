@@ -43,118 +43,118 @@ export const useGameStore = defineStore('GameStore',() =>  {
           flipped: false,
           matched: false
         },
-        // {
-        //   id: 5,
-        //   image: '🦊',
-        //   name: 'Fox',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 6,
-        //   image: '🦊',
-        //   name: 'Fox',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 7,
-        //   image: '🐻',
-        //   name: 'Bear',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 8,
-        //   image: '🐻',
-        //   name: 'Bear',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 9,
-        //   image: '🐵',
-        //   name: 'Monkey',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 10,
-        //   image: '🐵',
-        //   name: 'Monkey',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 11,
-        //   image: '🦝',
-        //   name: 'Raccoon',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 12,
-        //   image: '🦝',
-        //   name: 'Raccoon',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 13,
-        //   image: '🐼',
-        //   name: 'Panda',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 14,
-        //   image: '🐼',
-        //   name: 'Panda',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 15,
-        //   image: '🐨',
-        //   name: 'Koala',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 16,
-        //   image: '🐨',
-        //   name: 'Koala',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 17,
-        //   image: '🐯',
-        //   name: 'Tiger',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 18,
-        //   image: '🐯',
-        //   name: 'Tiger',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 19,
-        //   image: '🦁',
-        //   name: 'Lion',
-        //   flipped: false,
-        //   matched: false
-        // },
-        // {
-        //   id: 20,
-        //   image: '🦁',
-        //   name: 'Lion',
-        //   flipped: false,
-        //   matched: false
-        // },
+        {
+          id: 5,
+          image: '🦊',
+          name: 'Fox',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 6,
+          image: '🦊',
+          name: 'Fox',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 7,
+          image: '🐻',
+          name: 'Bear',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 8,
+          image: '🐻',
+          name: 'Bear',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 9,
+          image: '🐵',
+          name: 'Monkey',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 10,
+          image: '🐵',
+          name: 'Monkey',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 11,
+          image: '🦝',
+          name: 'Raccoon',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 12,
+          image: '🦝',
+          name: 'Raccoon',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 13,
+          image: '🐼',
+          name: 'Panda',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 14,
+          image: '🐼',
+          name: 'Panda',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 15,
+          image: '🐨',
+          name: 'Koala',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 16,
+          image: '🐨',
+          name: 'Koala',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 17,
+          image: '🐯',
+          name: 'Tiger',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 18,
+          image: '🐯',
+          name: 'Tiger',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 19,
+          image: '🦁',
+          name: 'Lion',
+          flipped: false,
+          matched: false
+        },
+        {
+          id: 20,
+          image: '🦁',
+          name: 'Lion',
+          flipped: false,
+          matched: false
+        },
     ])
 
     const cardsMatched = ref([])
