@@ -1,89 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import Card from './Card.vue';
+import { useGameStore } from "../stores/GameStore.js";
 
-const cardsArray: Array<object> = ref([
-  {
-    image: '🐶',
-    name: 'Dog'
-  },
-  {
-    image: '🐶',
-    name: 'Dog'
-  },
-  {
-    image: '🐱',
-    name: 'Cat'
-  },
-  {
-    image: '🐱',
-    name: 'Cat'
-  },
-  {
-    image: '🦊',
-    name: 'Fox'
-  },
-  {
-    image: '🦊',
-    name: 'Fox'
-  },
-  {
-    image: '🐻',
-    name: 'Bear'
-  },
-  {
-    image: '🐻',
-    name: 'Bear'
-  },
-  {
-    image: '🐵',
-    name: 'Monkey'
-  },
-  {
-    image: '🐵',
-    name: 'Monkey'
-  },
-  {
-    image: '🦝',
-    name: 'Raccoon'
-  },
-  {
-    image: '🦝',
-    name: 'Raccoon'
-  },
-  {
-    image: '🐼',
-    name: 'Panda'
-  },
-  {
-    image: '🐼',
-    name: 'Panda'
-  },
-  {
-    image: '🐨',
-    name: 'Koala'
-  },
-  {
-    image: '🐨',
-    name: 'Koala'
-  },
-  {
-    image: '🐯',
-    name: 'Tiger'
-  },
-  {
-    image: '🐯',
-    name: 'Tiger'
-  },
-  {
-    image: '🦁',
-    name: 'Lion'
-  },
-  {
-    image: '🦁',
-    name: 'Lion'
-  },
-]);
+const store = useGameStore()
+
+const cardsArray = ref(store.cardsArray)
 
 const shuffle = computed(() => {
     return cardsArray.value.sort(() => Math.random() - 0.5);
