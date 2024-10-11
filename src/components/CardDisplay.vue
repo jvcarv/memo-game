@@ -24,4 +24,12 @@ const store = useGameStore()
         grid-template-columns: repeat(4, 100px);
         grid-gap: 10px;
     }
+
+    @media (max-width: 460px) {
+        .cards{
+          grid-template-columns: repeat(4, 80px);
+          grid-gap: 7px;
+          max-width: 400px;
+        }
+    }
 </style>

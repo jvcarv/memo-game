@@ -15,10 +15,12 @@ const props = defineProps<{
     cardContent: cardContent
 }>()
 
-const show:boolean = ref(props.cardContent.flipped);
-
 const hidden = computed(() => {
     return props.cardContent.flipped? 'flipped':'hidden';
+})
+
+const flipped = computed(() => {
+    return props.cardContent.flipped? 'flippedBack':"";
 })
 
 const flip = () => {
@@ -53,8 +55,8 @@ const flip = () => {
 </script>
 
 <template>
-    <div class="card" @click="flip" >
-        <div class="card-content" :class="hidden">
+    <div class="card" :class="flipped" @click="flip" >
+        <div class="card-content"  :class="hidden">
             <p id="name">{{props.cardContent.name}}</p>
             <p id="icon">{{props.cardContent.image}}</p>
         </div>
@@ -65,23 +67,39 @@ const flip = () => {
 /* the most external div*/
 .card{
     background-color: black;
-    border: 1px solid whitesmoke;
+    border: 1px solid rgb(255, 2, 2);
     border-radius: 5px;
     width: 70px;
     padding: 10px;
-    height: 100px;
+    height: 80px;
 }
+    @media (max-width: 460px) {
+        .card{
+          max-width: 60px;
+        }
+    }
 
 /* the icon in the middle */
 #icon{
-    margin-top: -10px;
+    margin-top: -20px;
     font-size: 50px;
 }
+    @media (max-width: 460px) {
+        #icon{
+            margin-top: 0;
+            font-size: 45px;
+        }
+    }
 /* the name of the card*/
 #name{
     margin: 5px 0 5px 0;
     color:bisque;
 }
+    @media (max-width: 460px) {
+        #name{
+            margin: 0;
+        }
+    }
 
 /* to make the give the card the idea that is turned down */
 .hidden{
@@ -90,5 +108,9 @@ const flip = () => {
 
 .flipped{
     display: block;
+}
+
+.flippedBack{
+    background-color: rgb(45, 109, 164);
 }
 </style>
