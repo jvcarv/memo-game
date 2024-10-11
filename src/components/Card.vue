@@ -76,6 +76,7 @@ const flip = () => {
     @media (max-width: 460px) {
         .card{
           max-width: 60px;
+          height: 70px;
         }
     }
 
@@ -86,7 +87,7 @@ const flip = () => {
 }
     @media (max-width: 460px) {
         #icon{
-            margin-top: 0;
+            margin-top: -10px;
             font-size: 45px;
         }
     }

@@ -9,8 +9,9 @@ store.shuffle();
 
 <template>
   <div id="scoreContainer">
-    <p>Jogador Um <b v-if="store.whosPlaying === 'player one'"> (Sua vez!)</b> : {{ store.playerOneScore }}</p> 
-    <p>Jogador Dois <b v-if="store.whosPlaying === 'player two'"> (Sua vez!)</b> : {{ store.playerTwoScore }}</p> 
+    <p v-if="!store.checkIfGameEnds">Jogador Um <b v-if="store.whosPlaying === 'player one'"> (Sua vez!)</b> : {{ store.playerOneScore }}</p> 
+    <p v-if="!store.checkIfGameEnds">Jogador Dois <b v-if="store.whosPlaying === 'player two'"> (Sua vez!)</b> : {{ store.playerTwoScore }}</p> 
+    <p id='ends' v-if="store.checkIfGameEnds"><b>{{ store.whoWon }}</b></p>
   </div>
 </template>
 
@@ -18,5 +19,15 @@ store.shuffle();
 #scoreContainer{
     display: flex;
     justify-content: space-between;
+}
+#ends {
+    text-align: center;
+    margin-left: 8.5rem;
+}
+@media (max-width: 480px) {
+    #ends {
+        text-align: center;
+        margin-left: 6rem;
+    }
 }
 </style>

@@ -19,6 +19,11 @@ const store = useGameStore()
 </template>
 
 <style scoped>
+    h1{
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
     .cards{
         display: grid;
         grid-template-columns: repeat(4, 100px);
@@ -32,4 +37,27 @@ const store = useGameStore()
           max-width: 400px;
         }
     }
+
+    button {
+        background-color: rgba(210, 131, 21, 0.212);
+        border-radius: 8px;
+        border-width: 0;
+        color: #333333;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        list-style: none;
+        margin-top: 12px;
+        padding: 10px 12px;
+        text-align: center;
+        transition: all 200ms;
+        vertical-align: baseline;
+        white-space: nowrap;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
 </style>
