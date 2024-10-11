@@ -23,6 +23,9 @@ const hidden = computed(() => {
 
 const flip = () => {
     if(store.firstCard && store.secondCard) return //para previnir que se possa escolher uma carta enquanto as outras estão sendo computadas
+    
+    if(props.cardContent.flipped == true) return // para previnir que se ganhe mais pontos clicando duas vezes em uma carta já virada
+
     if(!store.firstCard){
         store.firstCard = props.cardContent
         store.firstCard.flipped = true;
@@ -35,10 +38,12 @@ const flip = () => {
         setTimeout(() => {
         if(store.ifPair == true){
             store.matching();
-        } else{
+        } else {
             setTimeout(() => {
                 store.firstCard.flipped = false;
                 store.secondCard.flipped = false;
+                if(store.whosPlaying === 'player one') store.whosPlaying = 'player two';
+                else store.whosPlaying = 'player one';
                 store.$reset()
             }, 1000)
         }
@@ -69,7 +74,7 @@ const flip = () => {
 
 /* the icon in the middle */
 #icon{
-    margin: 0;
+    margin-top: -10px;
     font-size: 50px;
 }
 /* the name of the card*/

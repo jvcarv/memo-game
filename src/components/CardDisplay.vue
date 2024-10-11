@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import Card from './Card.vue';
+import Score from './Score.vue';
 import { useGameStore } from "../stores/GameStore.js";
 
 const store = useGameStore()
-
-const cardsArray = ref(store.cardsArray)
-
-const shuffle = computed(() => {
-    return cardsArray.value.sort(() => Math.random() - 0.5);
-});
-
 </script>
 
 <template>
   <div>
     <h1>Jogo da Memória</h1>
+    <Score/>
     <div class="cards">
-        <Card v-for="card in shuffle" :key="card.name" :cardContent="card"/>
+        <Card v-for="card in store.cardsArray" :key="card.id" :cardContent="card"/>
     </div>
+    <button v-if="store.checkIfGameEnds" class="end" @click="store.$resetAll">Resetar</button>
   </div>
 </template>
 
