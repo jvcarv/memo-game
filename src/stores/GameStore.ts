@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed, reactive, ref} from 'vue'
+import { computed, ref} from 'vue'
 
 export const useGameStore = defineStore('GameStore',() =>  {
     const playerOneScore = ref(0)
@@ -157,7 +157,7 @@ export const useGameStore = defineStore('GameStore',() =>  {
         },
     ])
 
-    const cardsMatched = ref([])
+    const cardsMatched = ref<object[]>([])
 
     const ifPair = computed(() => {
         if (firstCard.value != null && secondCard.value != null){
@@ -178,9 +178,6 @@ export const useGameStore = defineStore('GameStore',() =>  {
     function $resetAll(){
       //embaralha as cartas
       shuffle();
-
-      //reseta o ganhador
-      const whoWon = '';
 
       //resetando os placares
       playerOneScore.value = 0;

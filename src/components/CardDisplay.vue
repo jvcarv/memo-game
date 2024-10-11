@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
 import Card from './Card.vue';
 import Score from './Score.vue';
-import { useGameStore } from "../stores/GameStore.js";
+import { useGameStore } from "../stores/GameStore.ts";
 
 const store = useGameStore()
 </script>
